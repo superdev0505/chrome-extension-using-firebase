@@ -1,0 +1,252 @@
+body {
+	background-color: #1E2132;
+}
+
+.row {
+	display: flex;
+}
+
+.ad-card-div {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.ad-mail-to {
+	display: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 5;
+	font-family: Montserrat;
+	color: white;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.ad-mail-to a {
+	opacity: 0.35;
+	color: white;
+	text-decoration: none;
+}
+
+
+.ad-mail-to:hover {
+	cursor: pointer;
+}
+
+.ad-mail-to:hover a {
+	opacity: 0.9;
+}
+
+.title-card:hover .ad-mail-to{
+	display: block;
+}
+
+.ad-card-2 {
+	height: 360px;
+	overflow: hidden;
+	position: relative;
+	background-size: cover;
+}
+
+.ad-card-3 {
+	height: 556px;
+	overflow: hidden;
+	position: relative;
+}
+
+.ad-card-2 a {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.title-h1 {
+	font-family: Montserrat;
+	color: white;
+	font-weight: 900;
+	font-size: 48px;
+	line-height: 58px;
+	padding: 40px 40px 0px 40px;
+}
+
+
+.post-hidden-layout {
+	display: none;
+}
+
+.post-div {
+	
+	padding: 24px 40px;
+}
+
+.post-div:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+	cursor: pointer;
+}
+
+.post-div:active {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.post-title {
+	font-family: Montserrat;
+	color: white;
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.post-link {
+	text-transform: uppercase;
+	color: rgba(255,255,255,0.5);
+	font-family: Montserrat;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	line-height: 13px;
+	padding: 0px;
+	padding-top: 12px;
+}
+
+.post-link:hover {
+	color: rgba(255,255,255,0.5);
+	text-decoration: none;
+}
+
+.more-div {
+	position: absolute;
+    bottom: 0px;
+    width: 100%;
+	text-align: center;
+	padding: 24px 0px;
+}
+.more-div:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+	cursor: pointer;
+}
+
+.more-div:hover .more-button {
+	opacity: 0.9;
+}
+
+.more-div:active {
+	background-color: rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+}
+
+.more-button {
+	opacity: 0.35;
+	color: #FFFFFF;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 900;
+	line-height: 19px;
+	text-align: center;
+
+}
+
+.fab-icon {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+
+.btn-circle {
+	width: 80px;
+    height: 80px;
+    padding: 10px 16px;
+    border-radius: 40px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.template-div .image-card, .template-div .title-card {
+	background: linear-gradient(to bottom, rgba(246,246,246,1) 0%, rgba(171,171,171,1) 100%);
+}
+
+footer {
+	height: 84px;
+	width: 100%;
+	background-color: #1E2132;
+	color: white;
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer span {
+	color: #8d9ead;
+}
+
+@media only screen and (min-width: 360px) {
+	.ad-card-div {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 720px) {
+	.ad-card-div {
+		width: 50%;
+	}
+} 
+
+@media only screen and (min-width: 1080px) {
+	.ad-card-div {
+		width: 33.333333%;
+	}
+} 
+
+@media only screen and (min-width: 1440px) {
+	.ad-card-div {
+		width: 25%;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	.ad-card-div {
+		width: 20%;
+	}
+}
+
+@media only screen and (min-width: 2160px) {
+	.ad-card-div {
+		width: 16.666666%;
+	}
+}
+
+.ad-card-2 {
+	opacity: 0;
+}
+.ad-card-3 {
+	opacity: 0;
+}
+
+.template-div {
+	width: calc(100% - 30px);
+	position: absolute;
+}
+
+.template-div .ad-card-2, .template-div .ad-card-3 {
+	opacity: 1;
+}
+
+.post-title {
+	text-transform: none;
+	word-wrap: break-word;
+}
+
+.image-card.new-job-div {
+	height: 0px;
+}
+
+.title-card.new-job-div {
+	height: 916px;
+}
