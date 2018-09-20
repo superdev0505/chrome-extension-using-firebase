@@ -1,10 +1,10 @@
 {
 "update_url": "https://clients2.google.com/service/update2/crx",
 
-    "name": "UXUnicorn",
-    "version": "1.0.0.0",
+    "name": "UX Unicorns Club",
+    "version": "1.0.0.4",
     "manifest_version": 2,
-    "description": "UXUnicorn",
+    "description": "UX Unicorns Club",
     "default_locale": "en",
 
     "background": {
@@ -25,7 +25,7 @@
             "19": "images/unicorn-icon-19.png",
             "38": "images/unicorn-icon-38.png"
         },
-        "default_title": "UXUnicorn"
+        "default_title": "UX Unicorns Club"
     },
     "content_scripts": [
       {
