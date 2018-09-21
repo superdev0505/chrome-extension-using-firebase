@@ -8,7 +8,7 @@
     "default_locale": "en",
 
     "background": {
-        "page": "html/background.html"
+        "scripts": ["js/firebase.min.js","js/background.js"]
     },
     "chrome_url_overrides": {
         "newtab": "html/template.html"
@@ -25,7 +25,8 @@
             "19": "images/unicorn-icon-19.png",
             "38": "images/unicorn-icon-38.png"
         },
-        "default_title": "UX Unicorns Club"
+        "default_title": "UX Unicorns Club",
+        "default_popup": "html/popup.html"
     },
     "content_scripts": [
       {
@@ -41,6 +42,7 @@
     "permissions": [
         "tabCapture",
         "downloads",
+        "contextMenus",
         "tabs",
         "<all_urls>",
         "activeTab",

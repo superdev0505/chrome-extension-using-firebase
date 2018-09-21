@@ -5,17 +5,10 @@
 chrome.storage.sync.get(['uxuicorn_show_type'], function(result) {
 	var show_type = result.uxuicorn_show_type;
 	if (show_type == "extension") {
-		chrome.storage.local.get(['uxuicorn_click'], function(result) {
-			if (result.uxuicorn_click != 'on') {
-				window.location.href = 'https://www.google.com' ;
-			}
-			else {
-				chrome.storage.local.set({'uxuicorn_click': 'off'}, function() {});
-				load_post();
-			}
-		});
+		window.location.href = 'https://www.google.com' ;
 	}
 	else {
+
 		load_post();
 	}
 });
@@ -125,6 +118,7 @@ function load_post() {
 	}
 
 	firebase.initializeApp(config);
+	var firedata = firebase.database();
 	var posts = [];
 	var category = [];
 	var new_job_position = 5;
@@ -143,12 +137,15 @@ function load_post() {
 	else {
 		new_job_position = 5;
 	}
-	firebase.database().ref('/category').once('value').then(function(snapshot) {
+	firedata.ref('/category').once('value').then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) {
 			category.push(childSnapshot.val())
 		});
 		category.sort(sortbydate_category);
-		firebase.database().ref('/posts').once('value').then(function(snapshot) {
+		firedata.ref('/posts').once('value').then(function(snapshot) {
+			// console.log(snapshot);
+			chrome.storage.sync.set({'uxuicorn_post_count': snapshot.numChildren()});
+			chrome.browserAction.setBadgeText({text: ""});
 			snapshot.forEach(function(childSnapshot) {
 				posts.push(childSnapshot.val())
 			});
