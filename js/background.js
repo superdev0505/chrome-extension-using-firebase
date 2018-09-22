@@ -8,8 +8,8 @@ var config = {
 	messageingSenderId: "752488928557"
 };
 
-firebase.initializeApp(config);
-var firedata = firebase.database();
+
+var firedata;
 
 
 chrome.runtime.onInstalled.addListener(function(details){
@@ -17,14 +17,28 @@ chrome.runtime.onInstalled.addListener(function(details){
 		'uxuicorn_show_type': 'tab',
 		'uxuicorn_new_count': 0,
 		'uxuicorn_post_count': 0,
+		'uxuicorn_first_time': true,
 	});
+	chrome.browserAction.setBadgeBackgroundColor({color: "#E52034"});
+	firebase.initializeApp(config);
+	firedata = firebase.database();
 });
-// chrome.browserAction.onClicked.addListener(function(activeTab){
-// 	chrome.storage.local.set({'uxuicorn_click': 'on'}, function() {});
-// 	var newURL = "html/template.html";
-// 	chrome.tabs.create({ url: newURL });
-// });
-//chrome.contextMenus.removeAll();
+
+chrome.browserAction.onClicked.addListener(function(activeTab){
+	var newURL = "html/template.html";
+	chrome.tabs.create({ url: newURL });
+});
+
+chrome.tabs.onCreated.addListener(function(tab) {
+	if (tab.url == "chrome://newtab/") {
+		chrome.storage.sync.get(['uxuicorn_show_type'], function(result) {
+			if (result.uxuicorn_show_type == "tab") {
+				var newURL = "html/template.html";
+				chrome.tabs.update({ url: newURL });
+			}
+		})
+	}
+});
 
 function setnewtab(info, tab) {
 	if (info.checked == true) {
@@ -34,14 +48,13 @@ function setnewtab(info, tab) {
     }
 }
 
-chrome.browserAction.setBadgeBackgroundColor({color: "#E52034"});
+
 
 chrome.storage.sync.get(['uxuicorn_show_type'], function(result) {
 	var disable_status = false;
 	if (result.uxuicorn_show_type == 'extension') {
 		disable_status = true;
 	}
-	//alert(disable_status);
 	chrome.contextMenus.create({
 		type: "checkbox",
 		title: "Do not open in new tab",

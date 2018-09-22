@@ -10,9 +10,7 @@
     "background": {
         "scripts": ["js/firebase.min.js","js/background.js"]
     },
-    "chrome_url_overrides": {
-        "newtab": "html/template.html"
-    },
+    
 
     "icons": {
         "16": "images/unicorn-icon-16.png",
@@ -25,8 +23,7 @@
             "19": "images/unicorn-icon-19.png",
             "38": "images/unicorn-icon-38.png"
         },
-        "default_title": "UX Unicorns Club",
-        "default_popup": "html/popup.html"
+        "default_title": "UX Unicorns Club"
     },
     "content_scripts": [
       {

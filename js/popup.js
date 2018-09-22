@@ -1,3 +1,3 @@
 $(".btn-ok").click(function() {
-	window.close();
+	$("#popup-div").hide();
 });
